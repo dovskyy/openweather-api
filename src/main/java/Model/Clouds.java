@@ -2,19 +2,36 @@ package Model;
 
 import lombok.*;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@XmlRootElement (name = "clouds")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
 public class Clouds {
 
-    @XmlAttribute (name = "value")
-    private double value;
+    @XmlAttribute(name = "value", required = true)
+    @XmlSchemaType(name = "unsignedByte")
+    protected short value;
+    @XmlAttribute(name = "name", required = true)
+    protected String name;
 
-    @XmlAttribute (name = "name")
-    private String name;
+    public short getValue() {
+        return value;
+    }
+
+    public void setValue(short value) {
+        this.value = value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

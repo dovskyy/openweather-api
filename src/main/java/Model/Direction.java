@@ -3,22 +3,24 @@ package Model;
 import com.sun.xml.txw2.annotation.XmlElement;
 import lombok.*;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+import lombok.*;
+
+import javax.xml.bind.annotation.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@XmlRootElement (name = "direction")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
 public class Direction {
 
-    @XmlAttribute (name = "value")
-    private double value;
-
-    @XmlAttribute (name = "code")
-    private String code;
-
-    @XmlAttribute (name = "name")
-    private String name;
+    @XmlAttribute(name = "value", required = true)
+    @XmlSchemaType(name = "unsignedByte")
+    protected short value;
+    @XmlAttribute(name = "code", required = true)
+    protected String code;
+    @XmlAttribute(name = "name", required = true)
+    protected String name;
 }

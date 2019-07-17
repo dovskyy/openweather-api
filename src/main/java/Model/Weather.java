@@ -2,24 +2,22 @@ package Model;
 
 import lombok.*;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
 public class Weather {
 
-
-    @XmlAttribute (name = "number")
-    private double number;
-
-    @XmlAttribute (name = "value")
-    private String value;
-
-    @XmlAttribute (name = "icon")
-    private String icon;
+    @XmlAttribute(name = "number", required = true)
+    @XmlSchemaType(name = "unsignedShort")
+    protected int number;
+    @XmlAttribute(name = "value", required = true)
+    protected String value;
+    @XmlAttribute(name = "icon", required = true)
+    protected String icon;
 }

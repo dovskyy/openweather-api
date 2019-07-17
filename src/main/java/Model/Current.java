@@ -2,45 +2,127 @@ package Model;
 
 import lombok.*;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-@XmlRootElement (name = "current")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+        "city",
+        "temperature",
+        "humidity",
+        "pressure",
+        "wind",
+        "clouds",
+        "visibility",
+        "precipitation",
+        "weather",
+        "lastupdate"
+})
+@XmlRootElement(name = "current")
 public class Current {
 
-    @XmlElement (name = "city")
-    private City city;
+    @XmlElement(required = true)
+    protected City city;
+    @XmlElement(required = true)
+    protected Temperature temperature;
+    @XmlElement(required = true)
+    protected Humidity humidity;
+    @XmlElement(required = true)
+    protected Pressure pressure;
+    @XmlElement(required = true)
+    protected Wind wind;
+    @XmlElement(required = true)
+    protected Clouds clouds;
+    @XmlElement(required = true)
+    protected Visibility visibility;
+    @XmlElement(required = true)
+    protected Precipitation precipitation;
+    @XmlElement(required = true)
+    protected Weather weather;
+    @XmlElement(required = true)
+    protected LastUpdate lastupdate;
 
-    @XmlElement (name = "temperature")
-    private Temperature temperature;
+    public City getCity() {
+        return city;
+    }
 
-    @XmlElement (name = "city")
-    private Humidity humidity;
+    public void setCity(City city) {
+        this.city = city;
+    }
 
-    @XmlElement (name = "pressure")
-    private Pressure pressure;
+    public Temperature getTemperature() {
+        return temperature;
+    }
 
-    @XmlElement (name = "wind")
-    private Wind wind;
+    public void setTemperature(Temperature temperature) {
+        this.temperature = temperature;
+    }
 
-    @XmlElement (name = "clouds")
-    private Clouds clouds;
+    public Humidity getHumidity() {
+        return humidity;
+    }
 
-    @XmlElement (name = "visibility")
-    private Visibility visibility;
+    public void setHumidity(Humidity humidity) {
+        this.humidity = humidity;
+    }
 
-    @XmlElement (name = "precipitation")
-    private Precipitation precipitation;
+    public Pressure getPressure() {
+        return pressure;
+    }
 
-    @XmlElement (name = "weather")
-    private Weather weather;
+    public void setPressure(Pressure pressure) {
+        this.pressure = pressure;
+    }
 
-    @XmlElement (name = "lastupdate")
-    private LastUpdate lastUpdate;
+    public Wind getWind() {
+        return wind;
+    }
 
+    public void setWind(Wind wind) {
+        this.wind = wind;
+    }
+
+    public Clouds getClouds() {
+        return clouds;
+    }
+
+    public void setClouds(Clouds clouds) {
+        this.clouds = clouds;
+    }
+
+    public Visibility getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Visibility visibility) {
+        this.visibility = visibility;
+    }
+
+    public Precipitation getPrecipitation() {
+        return precipitation;
+    }
+
+    public void setPrecipitation(Precipitation precipitation) {
+        this.precipitation = precipitation;
+    }
+
+    public Weather getWeather() {
+        return weather;
+    }
+
+    public void setWeather(Weather weather) {
+        this.weather = weather;
+    }
+
+    public LastUpdate getLastupdate() {
+        return lastupdate;
+    }
+
+    public void setLastupdate(LastUpdate lastupdate) {
+        this.lastupdate = lastupdate;
+    }
 }

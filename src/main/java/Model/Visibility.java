@@ -2,16 +2,18 @@ package Model;
 
 import lombok.*;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@XmlRootElement (name = "visibility")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
 public class Visibility {
 
-    @XmlAttribute (name = "value")
-    private long vallue;
+    @XmlAttribute(name = "value", required = true)
+    @XmlSchemaType(name = "unsignedShort")
+    protected int value;
 }

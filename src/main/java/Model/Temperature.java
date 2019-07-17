@@ -1,26 +1,58 @@
 package Model;
 
+
 import lombok.*;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@XmlRootElement (name = "temperature")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
 public class Temperature {
 
-    @XmlAttribute (name = "value")
-    private double value;
+    @XmlAttribute(name = "value", required = true)
+    protected BigDecimal value;
+    @XmlAttribute(name = "min", required = true)
+    protected BigDecimal min;
+    @XmlAttribute(name = "max", required = true)
+    protected BigDecimal max;
+    @XmlAttribute(name = "unit", required = true)
+    protected String unit;
 
-    @XmlAttribute (name = "min")
-    private double min;
+    public BigDecimal getValue() {
+        return value;
+    }
 
-    @XmlAttribute (name = "max")
-    private double max;
+    public void setValue(BigDecimal value) {
+        this.value = value;
+    }
 
-    @XmlAttribute (name = "unit")
-    private String unit;
+    public BigDecimal getMin() {
+        return min;
+    }
+
+    public void setMin(BigDecimal min) {
+        this.min = min;
+    }
+
+    public BigDecimal getMax() {
+        return max;
+    }
+
+    public void setMax(BigDecimal max) {
+        this.max = max;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
 }
